@@ -16,6 +16,7 @@
 		493E2E2B20F04AAB000A73D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 493E2E2A20F04AAB000A73D4 /* GoogleService-Info.plist */; };
 		493E2E2D20F0B603000A73D4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E2E2C20F0B603000A73D4 /* MainTabBarController.swift */; };
 		493E2E2F20F0B7E4000A73D4 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E2E2E20F0B7E4000A73D4 /* UserProfileController.swift */; };
+		493E2E3220F0C2D3000A73D4 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E2E3120F0C2D3000A73D4 /* UserProfileHeader.swift */; };
 		60A5D6E2751EFC0D15C71679 /* Pods_Instgram_Clone_FireBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C47B62819A1D2DFC6EDF07 /* Pods_Instgram_Clone_FireBase.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		493E2E2A20F04AAB000A73D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		493E2E2C20F0B603000A73D4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		493E2E2E20F0B7E4000A73D4 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		493E2E3120F0C2D3000A73D4 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		6275CE9886597960EE752B16 /* Pods-Instgram_Clone_FireBase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instgram_Clone_FireBase.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instgram_Clone_FireBase/Pods-Instgram_Clone_FireBase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,11 +79,11 @@
 		493E2E1420E87C73000A73D4 /* Instgram_Clone_FireBase */ = {
 			isa = PBXGroup;
 			children = (
+				493E2E3020F0C2B9000A73D4 /* UserProfile */,
 				493E2E2720E88C17000A73D4 /* Utilities */,
 				493E2E1520E87C73000A73D4 /* AppDelegate.swift */,
 				493E2E1720E87C74000A73D4 /* ViewController.swift */,
 				493E2E2C20F0B603000A73D4 /* MainTabBarController.swift */,
-				493E2E2E20F0B7E4000A73D4 /* UserProfileController.swift */,
 				493E2E1920E87C74000A73D4 /* Main.storyboard */,
 				493E2E1C20E87C76000A73D4 /* Assets.xcassets */,
 				493E2E1E20E87C76000A73D4 /* LaunchScreen.storyboard */,
@@ -97,6 +99,15 @@
 				493E2E2820E88C32000A73D4 /* Extensions.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		493E2E3020F0C2B9000A73D4 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				493E2E3120F0C2D3000A73D4 /* UserProfileHeader.swift */,
+				493E2E2E20F0B7E4000A73D4 /* UserProfileController.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		D6CF37D13A283DE963E981DB /* Pods */ = {
@@ -246,6 +257,7 @@
 				493E2E1820E87C74000A73D4 /* ViewController.swift in Sources */,
 				493E2E2920E88C32000A73D4 /* Extensions.swift in Sources */,
 				493E2E2D20F0B603000A73D4 /* MainTabBarController.swift in Sources */,
+				493E2E3220F0C2D3000A73D4 /* UserProfileHeader.swift in Sources */,
 				493E2E2F20F0B7E4000A73D4 /* UserProfileController.swift in Sources */,
 				493E2E1620E87C73000A73D4 /* AppDelegate.swift in Sources */,
 			);
