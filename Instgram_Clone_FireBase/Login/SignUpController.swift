@@ -14,7 +14,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -152,6 +152,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     }
                     
                     print("Successfully saved user info to db")
+                    //dismiss signUp controller and
+                    guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else {return}
+                    mainTabBarController.setupViewControllers()
+                    self.dismiss(animated: true, completion: nil)
                     
                 })
                 
@@ -161,9 +165,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         })
     }
     
+    let haveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        let attributedTitle = NSMutableAttributedString(string: "Already have an account? ", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray,NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)])
+        attributedTitle.append(NSAttributedString(string: "Sign in", attributes: [NSAttributedStringKey.foregroundColor : UIColor.rgb(red: 17, green: 154, blue: 237)]))
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        
+        // button.setTitle("Don't have an account? Sign up.",for: .normal)
+        //transition to sign in view
+        button.addTarget(self, action: #selector(handleHaveAccount), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc fileprivate func handleHaveAccount() {
+     //pop back to the login controller into begining
+       _ = navigationController?.popViewController(animated: true) //get rid of warnin, bc this method is returning a controller but we are not handling it
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(haveAccountButton)
+        haveAccountButton.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
+        
+        navigationController?.isNavigationBarHidden = true
+        
+        view.backgroundColor = .white
         view.addSubview(plusPhotoButton)
         
         plusPhotoButton.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 140, height: 140)

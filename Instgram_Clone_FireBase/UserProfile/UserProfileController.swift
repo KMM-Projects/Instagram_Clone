@@ -25,7 +25,37 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         
         collectionView?.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerId")
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        
+        setupLogOutButton()
+        
     }
+    
+    fileprivate func setupLogOutButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
+    }
+    
+    @objc func handleLogOut() {
+        print("logging out!")
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        present(alertController, animated: true, completion: nil) // what you write here will be on top of it as label with text
+        alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
+            print("Perform Log Out!")
+            do {
+                try Auth.auth().signOut()
+                print("SignOff performed")
+                //what happens ? We need to present som kinf o log in controller
+                //present log in controller
+                let loginController = LoginController()
+                let navController = UINavigationController(rootViewController: loginController)
+                self.present(navController, animated: true, completion: nil)
+                
+            } catch let signoutError {
+                print("Failed to log out:", signoutError)
+            }
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    }
+    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
